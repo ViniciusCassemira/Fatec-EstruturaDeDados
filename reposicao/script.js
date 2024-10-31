@@ -1,12 +1,12 @@
 class Node{
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.next = null
     }
 }
 
 class LinkedList{
-    constructor() {
+    constructor(){
         this.head = null;
     }
 
@@ -15,31 +15,29 @@ class LinkedList{
         newNode.next = this.head;
         this.head = newNode;
     }
-    
+
     insertAtEnd(value){
         let newNode = new Node(value);
-
-        if (this.head === null){
+        if(this.head === null){
             this.head = newNode;
             return;
         }
 
         let current = this.head;
-        while (current.next !== null){
-            current = current.next;
+        while(current.next !== null){
+            current = current.next
         }
         current.next = newNode;
+
     }
 
     removeByValue(value){
-        if (this.head === null){
+        if(this.head === null){
             return;
         }
 
-        // se o nó a ser removido for o primeiro
-        if (this.head.value === value){
+        if(this.head.value === value){
             this.head = this.head.next;
-            return;
         }
 
         let current = this.head;
@@ -55,13 +53,13 @@ class LinkedList{
     find(value){
         let current = this.head;
 
-        while (current !== null){
-            if (current.value === value){
+        while(current !== null){
+            if(current.value === value){
                 return current;
             }
             current = current.next;
         }
-        return null; //retorna null se o valor não for encontrado
+        return null;
     }
 
     printList(){
@@ -75,23 +73,41 @@ class LinkedList{
     }
 }
 
-let list = new LinkedList();
 
-//inserindo no início
-list.insertAtBeginning(30);
-list.insertAtBeginning(20);
-list.insertAtBeginning(10);
-list.printList();
+//----- Exercício 01 -----
+console.log("Exercício 1")
+let trilha = new LinkedList();
 
-//inserindo no fim
-list.insertAtEnd(40);
-list.insertAtEnd(50);
-list.insertAtEnd(60);
-list.printList();
+//inserindo
+trilha.insertAtBeginning("Cachoeira média");
+trilha.insertAtEnd("Mirante");
+trilha.insertAtEnd("Caverna");
+trilha.insertAtBeginning("Ponte");
+//removendo
+trilha.removeByValue("Caverna");
+//conferindo
+console.log(trilha.find("Mirante"));
 
-//removendo um valor específico da lista
-list.removeByValue(60)
-list.printList();
 
-//buscando um valor espefífico
-console.log(list.find(20));
+//----- Exercício 02 -----
+console.log("Exercício 2")
+let posicao = new LinkedList();
+
+posicao.insertAtBeginning("Lenta");
+posicao.insertAtEnd("Média");
+posicao.insertAtEnd("Veloz");
+
+posicao.removeByValue("Lenta");
+
+console.log(posicao.find("Veloz"));
+posicao.printList();
+
+
+//----- Exercício 03 -----
+console.log("Exercício 3")
+let poderes = new LinkedList();
+
+poderes.insertAtBeginning("Raio congelante");
+poderes.insertAtEnd("Escudo de fogo");
+poderes.removeByValue("Raio congelante");
+console.log(poderes.find("Escudo de fogo"));
