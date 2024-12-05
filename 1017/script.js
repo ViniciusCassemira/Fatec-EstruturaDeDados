@@ -1,21 +1,23 @@
 class Node{
     constructor(value){
         this.value = value;
-        this.next = null;
+        this.next = null; //Ponteiro para o próximo nó    
     }
 }
 
 class LinkedList{
     constructor() {
-        this.head = null;
+        this.head = null; //A lista começa vazia
     }
 
+    //Inserir no começo da lista
     insertAtBeginning(value){
         let newNode = new Node(value);
         newNode.next = this.head;
         this.head = newNode;
     }
     
+    //Inserir no fim da lista
     insertAtEnd(value){
         let newNode = new Node(value);
 
@@ -31,6 +33,7 @@ class LinkedList{
         current.next = newNode;
     }
 
+    //Remover um nó por valor
     removeByValue(value){
         if (this.head === null){
             return;
@@ -52,6 +55,7 @@ class LinkedList{
         }
     }
 
+    //Buscar um nó por valor
     find(value){
         let current = this.head;
 
@@ -64,6 +68,7 @@ class LinkedList{
         return null; //retorna null se o valor não for encontrado
     }
 
+    //Exibir a lista (opcional, para facilitar a visualização)
     printList(){
         let current = this.head;
         let list = '';

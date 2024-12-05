@@ -21,6 +21,7 @@ class MeuArray{
 
         return ultimoItem; //retorna o item removido
     }
+
     //acessa o elemento em um índice específico
     obterElemento(indice){
         if (indice < 0 || indice>= this.tamanho){ //caso o índice esteja fora de alcance
@@ -41,15 +42,16 @@ class MeuArray{
     }
 }
 
-$numeros = new MeuArray();
-$numeros.adicionar(15);
-$numeros.adicionar(25);
-$numeros.adicionar(10);
+// Exemplo de uso
+$array = new MeuArray();
 
-$numeros.obterElemento(0);
-$numeros.tamanhoArray();
+// Adicionano itens no array
+$array.adicionar(10);
+$array.adicionar(15);
+$array.adicionar(25);
 
-console.log($numeros.remover());
-$numeros.tamanhoArray();
+console.log($array.obterElemento(1)); //Saída: 15
+console.log($array.tamanhoArray()); //Saída: 3
 
-console.log($numeros);
+console.log($array.remover()); //Saída: 25 (Remove o último elemento)
+console.log($array.tamanhoArray()); //Saída: 2

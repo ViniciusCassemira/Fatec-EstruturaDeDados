@@ -1,6 +1,6 @@
 class Fila{
     constructor(){
-        this.itens = {}; //usamos um objeto para armazenar os itens
+        this.itens = []; //usamos um objeto para armazenar os itens
         this.inicio = 0; //representa o índice do início da fila
         this.fim = 0; // representa o índice do fim da fila
     }
@@ -54,12 +54,17 @@ class Fila{
 
 let fila = new Fila();
 
+//adicionando clientes na fila criada
 fila.enqueue("Cliente 1");
 fila.enqueue("Cliente 2");
 fila.enqueue("Cliente 3");
 
-console.log(fila.front());
-console.log(fila.dequeue());
-console.log(fila.dequeue());
+console.log(fila.front()); //Saída: "Cliente 1"
+
+console.log(fila.dequeue()); //Saída: "Cliente 1"
+console.log(fila.dequeue()); //Saída: "Cliente 2"
 
 fila.enqueue("Cliente 4");
+
+console.log(fila.size()); //Saída: 2 (Cliente 3 e 4 estão na fila)
+console.log(fila.dequeue()); //Saída: "Cliente 3"
